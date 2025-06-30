@@ -37,7 +37,7 @@ MWCL/
 ```
 ##  Configuration
 
-Edit configuration files inside the `config/` directory to set:
+Edit configuration files inside the `maintrain/` directory to set:
 
 * Dataset paths
 * Training hyperparameters
