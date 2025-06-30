@@ -64,8 +64,8 @@ Run `bash test_mimic_cxr.sh` to test a model on the MIMIC-CXR data.
 # Results
 | Model    | BLEU-4    | METEOR    | ROUGE-L   | CIDEr     |
 | -------- | --------- | --------- | --------- | --------- |
-| **IU-Xray** | **0.191** | **0.207** | **0.401** | **0.371** |
-| **MIMIC** | **0.118** | **0.158** | **0.293** | **0.230** |
+| **IU-Xray** | **0.196** | **0.213** | **0.409** | **0.484** |
+| **MIMIC** | **0.120** | **0.160** | **0.286** | **0.230** |
 
 (Refer to the paper for full comparison)
 
@@ -90,11 +90,11 @@ We would also like to express our gratitude to all the source code contributors,
 ```
 If you use this code or findings, please cite:  
 
-@article{usman2025gada,  
-  title = {GADA: Enhancing Radiology Report Generation with Graph-Based Dual Attention and Temporal Disease Progression Modeling},  
+@article{usman2025MWCL,  
+  title = {MWCL: Memory-driven and mapping alignment with weighted contrastive learning for radiology},  
   author = {Usman, M. and [Coauthors]},  
-  journal = {The Visual Computer},  
+  journal = {xxx},  
   year = {2025},  
   doi = {10.5281/zenodo.15771095},  
-  note = {Code: \url{https://github.com/Usmannooh/GADA}}  
+  note = {Code: \url{https://github.com/Usmannooh/MWCL}}  
 }  
