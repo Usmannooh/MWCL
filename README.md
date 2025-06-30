@@ -1,10 +1,24 @@
-# MWCL: Memory-driven and mapping alignment  for radiology Reports
-# Overview
-Existing methods struggle with biased visual-textual representations and inefficient cross-modal interactions, limiting their ability to capture fine-grained medical abnormalities. To address these challenges, we introduce memory-driven  (MWCL), a radiology report generation model that leverages weighted contrastive learning for feature refinement and memory-driven alignment for contextual consistency. Our approach improves abnormality recognition and strengthens the alignment between image and text representations.
+# MWCL: Memory-driven and Mapping Alignment with Weighted Contrastive Learning for Radiology Reports
+
+Existing radiology report generation methods often suffer from biased visual-textual representations and inefficient cross-modal interactions, hindering the detection of fine-grained medical abnormalities.
+
+MWCL addresses these issues by introducing a memory-driven alignment mechanism and weighted contrastive learning:
+
+* **Weighted Contrastive Learning: Refines image-text features by emphasizing critical visual-textual pairs.
+* **Memory-driven Alignment:** Enhances contextual consistency between modalities using learned memory modules.
+
+This framework significantly improves **abnormality recognition** and **image-report alignment**, setting a new benchmark in medical vision-language tasks.
 ##  Requirements
-* Python >= 3.6
-* PyTorch >= 1.7
-* torchvision
+Ensure you have the following installed:
+- Python ≥ 3.8  
+- PyTorch ≥ 1.7  
+- `transformers`, `numpy`, `matplotlib`, `scikit-learn`, `opencv-python`
+
+You can install dependencies with:
+
+```bash
+pip install -r requirements.txt
+```
   ##  Dataset
 
 Download the following datasets and place them under the `data/` directory:
@@ -34,7 +48,27 @@ MWCL/
 ├── main_train.py
 ├── main_test.py
 └── README.md
+
 ```
+## Train
+
+Run `bash train_iu_xray.sh` to train a model on the IU X-Ray data.
+
+Run `bash train_mimic_cxr.sh` to train a model on the MIMIC-CXR data.
+
+## Test
+
+Run `bash test_iu_xray.sh` to test a model on the IU X-Ray data.
+
+Run `bash test_mimic_cxr.sh` to test a model on the MIMIC-CXR data.
+# Results
+| Model    | BLEU-4    | METEOR    | ROUGE-L   | CIDEr     |
+| -------- | --------- | --------- | --------- | --------- |
+| **IU-Xray** | **0.191** | **0.207** | **0.401** | **0.371** |
+| **MIMIC** | **0.118** | **0.158** | **0.293** | **0.230** |
+
+(Refer to the paper for full comparison)
+
 ##  Configuration
 
 Edit configuration files inside the `maintrain/` directory to set:
@@ -45,10 +79,22 @@ Edit configuration files inside the `maintrain/` directory to set:
 
 ---
 
-##  Training
+# Acknowledgments
 
-To train MWCL on either dataset, run:
+This work is supported by a grant from the **Natural Science Foundation of China (Grant No. 62072070)**.  <br><br>
 
-```bash
-python main_train.py --config config/<your_config_file>.yaml --gpu <gpu_id>
+We would also like to express our gratitude to all the source code contributors, especially the authors of **R2Gen**, whose work inspired parts of this implementation.
+
+
+## Citation 
 ```
+If you use this code or findings, please cite:  
+
+@article{usman2025gada,  
+  title = {GADA: Enhancing Radiology Report Generation with Graph-Based Dual Attention and Temporal Disease Progression Modeling},  
+  author = {Usman, M. and [Coauthors]},  
+  journal = {The Visual Computer},  
+  year = {2025},  
+  doi = {10.5281/zenodo.15771095},  
+  note = {Code: \url{https://github.com/Usmannooh/GADA}}  
+}  
