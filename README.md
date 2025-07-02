@@ -2,12 +2,21 @@
 
 Existing radiology report generation methods often suffer from biased visual-textual representations and inefficient cross-modal interactions, hindering the detection of fine-grained medical abnormalities.
 
-MWCL addresses these issues by introducing a memory-driven alignment mechanism and weighted contrastive learning:
+#  Important Notice
 
-* **Weighted Contrastive Learning: Refines image-text features by emphasizing critical visual-textual pairs.
+ This code is **directly associated with our manuscript submitted to the _Multimedia Systems**.  
+If you use this repository in your research, **please cite the corresponding paper** (see citation section below).  
+We encourage transparency and reproducibility in medical AI. This repository provides **full implementation**, **setup instructions**, and **evaluation tools** to replicate our results.
+
+#  Key Features
+MWCL addresses these issues by introducing an adaptive feature refinement, a memory-driven alignment mechanism, and weighted contrastive learning:
+
+* **Adaptive Feature Refinement:** Visual features through spatial and channel-wise attention, enabling the abnormal structures critical to diagnosis.
 * **Memory-driven Alignment:** Enhances contextual consistency between modalities using learned memory modules.
+* **Weighted Contrastive Learning:** Refines image-text features by emphasizing critical visual-textual pairs.
 
 This framework significantly improves **abnormality recognition** and **image-report alignment**, setting a new benchmark in medical vision-language tasks.
+
 ##  Requirements
 Ensure you have the following installed:
 - Python ≥ 3.8  
@@ -39,14 +48,16 @@ MWCL/
 │   ├── dataloader/
 │   ├── modal/
     ├── ..../
-│   ├── loss/
+│   ├── weighted/
 │   ├── metrics/
 │   ├── tokenizer/
 │   └── utils/
-├── preprocess/
 ├── pycocoevalcap/
 ├── main_train.py
 ├── main_test.py
+├── test_iu_xray/
+├── test_mimic_cxr/
+├── train_iu_xray/
 └── README.md
 
 ```
@@ -83,7 +94,7 @@ Edit configuration files inside the `maintrain/` directory to set:
 
 This work is supported by a grant from the **Natural Science Foundation of China (Grant No. 62072070)**.  <br><br>
 
-We would also like to express our gratitude to all the source code contributors, especially the authors of **R2Gen**, whose work inspired parts of this implementation.
+We would also like to express our gratitude to all the source code contributors, especially the authors of **R2GenCNM**, whose work inspired parts of this implementation.
 
 
 ## Citation 
@@ -93,8 +104,11 @@ If you use this code or findings, please cite:
 @article{usman2025MWCL,  
   title = {MWCL: Memory-driven and mapping alignment with weighted contrastive learning for radiology},  
   author = {Usman, M. and [Coauthors]},  
-  journal = {xxx},  
+  journal = {Multimedia Systems},  
   year = {2025},  
   doi = {10.5281/zenodo.15771095},  
   note = {Code: \url{https://github.com/Usmannooh/MWCL}}  
-}  
+}
+*This repository accompanies the manuscript under review at [Multimedia Systems].*
+
+```
