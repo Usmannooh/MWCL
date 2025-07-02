@@ -105,8 +105,7 @@ If you use this code or findings, please cite:
   title = {MWCL: Memory-driven and mapping alignment with weighted contrastive learning for radiology},  
   author = {Usman, M. and [Coauthors]},  
   journal = {Multimedia Systems},  
-  year = {2025},  
-  doi = {10.5281/zenodo.15771095},  
+  year = {2025},    
   note = {Code: \url{https://github.com/Usmannooh/MWCL}}  
 }
 *This repository accompanies the manuscript under review at [Multimedia Systems].*
