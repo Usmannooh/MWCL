@@ -1,6 +1,6 @@
 # MWCL: Memory-driven and Mapping Alignment with Weighted Contrastive Learning for Radiology Reports
+This paper focuses on the task of automated radiology report generation (ARRG) from chest X-ray images, a critical area in medical AI that enhances diagnostic precision, reduces radiologist workload, and promotes timely clinical decision-making. Despite advancements in vision-language modeling, current approaches struggle with three core limitations: Despite advancements in vision-language modeling, current approaches struggle with three core limitations: (1) poor alignment between visual and textual features, (2) underrepresentation of rare and subtle abnormalities, and (3) limited contextual consistency in generated reports due to data imbalance and shallow multimodal interactions.
 
-Existing radiology report generation methods often suffer from biased visual-textual representations and inefficient cross-modal interactions, hindering the detection of fine-grained medical abnormalities.
 
 #  Important Notice
 
@@ -9,7 +9,7 @@ If you use this repository in your research, **please cite the corresponding pap
 We encourage transparency and reproducibility in medical AI. This repository provides **full implementation**, **setup instructions**, and **evaluation tools** to replicate our results.
 
 #  Key Features
-MWCL addresses these issues by 
+Existing radiology report generation methods often suffer from biased visual-textual representations and inefficient cross-modal interactions, hindering the detection of fine-grained medical abnormalities.MWCL addresses these issues by: 
 
 | Module      | Purpose                                                                          |
 | ----------- | -------------------------------------------------------------------------------- |
