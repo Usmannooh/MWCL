@@ -9,14 +9,57 @@ If you use this repository in your research, **please cite the corresponding pap
 We encourage transparency and reproducibility in medical AI. This repository provides **full implementation**, **setup instructions**, and **evaluation tools** to replicate our results.
 
 #  Key Features
-MWCL addresses these issues by introducing an adaptive feature refinement, a memory-driven alignment mechanism, and weighted contrastive learning:
+MWCL addresses these issues by 
 
-* **Adaptive Feature Refinement:** Visual features through spatial and channel-wise attention, enabling the abnormal structures critical to diagnosis.
-* **Memory-driven Alignment:** Enhances contextual consistency between modalities using learned memory modules.
-* **Weighted Contrastive Learning:** Refines image-text features by emphasizing critical visual-textual pairs.
+| Module      | Purpose                                                                          |
+| ----------- | -------------------------------------------------------------------------------- |
+| **AFRM**    | Enhances focus on abnormal regions using spatial and channel attention           |
+| **AEMF**    | Fuses visual and textual features with self-attention                            |
+| **MDAM**    | Aligns image-text features via a dynamic memory bank                             |
+| **WCL**     | Optimizes contrastive learning using structured similarity and auxiliary signals |
+| **Decoder** | Generates medical reports from memory-aligned image features                     |
 
 This framework significantly improves **abnormality recognition** and **image-report alignment**, setting a new benchmark in medical vision-language tasks.
+###  MWCL Pseudocode (Simplified Algorithm Overview)
 
+```python
+# Input: Radiology image(s) I
+# Output: Generated Radiology Report Y
+
+# Step 1: Feature Extraction
+F = ResNet101(I)                    # Extract visual features from image
+
+# Step 2: Adaptive Feature Refinement (AFRM)
+G = Conv3x3(ReLU(Conv3x3(F)))       # Enhance features with convolution
+AC = ChannelWiseAttention(G)        # Channel attention
+AS = SpatialFeatureEnhancement(G)   # Spatial attention
+F_refined = F + sigmoid(AC + AS) * G  # Recalibrated feature map
+
+# Step 3: Attention-Enhanced Multimodal Fusion (AEMF)
+T = TextEmbedding()                 # Text token embeddings
+R = concat(F_refined, T)           # Fuse visual and textual features
+R_fused = SelfAttention(R)         # Refine fusion with attention
+
+# Step 4: Memory-Driven Alignment Module (MDAM)
+Q = Linear(F_refined + PositionalEncoding)
+S = softmax(Q @ MemoryKeys.T / sqrt(d))   # Similarity to memory slots
+F_memory = S @ MemoryValues              # Retrieve relevant memory
+Memory = UpdateMemory(F_memory)         # Update memory dynamically
+
+# Step 5: Weighted Contrastive Learning (WCL)
+F1 = Augment(F_memory)
+F2 = Augment(F_memory)
+Z1 = Project(F1)
+Z2 = Project(F2)
+loss_WCL = ContrastiveLoss(Z1, Z2, temperature=τ)
+
+# Step 6: Report Generation (Transformer Decoder)
+H = TransformerEncoder(F_memory, Memory)
+Y = TransformerDecoder(H)         # Generate report text
+
+# Final Output
+return Y, loss_WCL
+```
 ##  Requirements
 Ensure you have the following installed:
 - Python ≥ 3.8  
